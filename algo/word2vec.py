@@ -37,7 +37,7 @@ def build_word2vec(data: object, model_path: str, learn_type: str = 'sg', min_wo
         model = gensim.models.Word2Vec(data, min_count=min_word_count, size=vector_size, window=window_size,
                                        seed=random_seed, workers=worker_count)
     elif learn_type == 'sg':
-        model = gensim.models.Word2Vec(data, min_count=min_word_count, size=vector_size, window=window_size, sg=1,
+        model = gensim.models.Word2Vec(data, min_count=min_word_count, vector_size=100, window=window_size, sg=1,
                                        seed=random_seed, workers=worker_count)
     else:
         raise KeyError('Unknown word embedding learn type found')

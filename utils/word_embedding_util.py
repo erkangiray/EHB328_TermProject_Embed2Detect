@@ -1,5 +1,5 @@
 # Created by Hansi at 2/7/2020
-from gensim.models import Word2Vec, FastText
+from gensim.models import Word2Vec, FastText, KeyedVectors
 
 from utils.file_utils import read_text_column
 
@@ -38,7 +38,9 @@ def get_embedding(word, model):
         Word embedding model
     :return: vector
     """
-    if word in model.wv.vocab:
+    #word_vectors = model.wv
+
+    if word in model.wv.key_to_index.keys():
         return model.wv[word]
     else:
         raise KeyError
@@ -55,7 +57,10 @@ def get_vocab(model):
     :return: list
         Vocabulary as a list of words
     """
-    return list(model.wv.vocab)
+    #model = KeyedVectors.load_word2vec_format(wv_path, binary=False)
+    #how do I get the path here?
+
+    return list(model.wv.key_to_index.keys())
 
 
 def format_data(data_file_path):

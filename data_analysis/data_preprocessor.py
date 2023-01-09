@@ -3,6 +3,9 @@ import csv
 import os
 import re
 
+import nltk
+#nltk.download('stopwords')
+
 from nltk import TweetTokenizer
 from nltk.corpus import stopwords
 

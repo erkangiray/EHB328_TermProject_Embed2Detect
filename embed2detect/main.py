@@ -3,6 +3,9 @@ import logging
 import os
 import time
 
+import nltk
+#nltk.download('stopwords')
+
 from data_analysis.data_preprocessor import preprocess_bulk
 from data_analysis.stat_generator import generate_stats
 from embed2detect.event_window_identifier import get_event_windows
@@ -90,9 +93,9 @@ def embed2detect(data_file_path: str, from_time: str, to_time: str, time_window_
 
 
 if __name__ == '__main__':
-    data_file_path = '../data/munliv.tsv'
-    from_time = '2019_10_20_15_28_00'
-    to_time = '2019_10_20_15_34_00'
+    data_file_path = 'C:/Users/erkan/Desktop/Lab Directory/my_data/correct_2_all_fin.tsv'
+    from_time = '2019_10_20_15_15_00'
+    to_time = '2019_10_20_17_30_00'
     window_legth = 2
     alpha = 0.23
     beta = 20
